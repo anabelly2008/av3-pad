@@ -1,0 +1,22 @@
+var botao = document.querySelector("#registrar")
+botao.addEventListener("click",pokemons)
+// info pokemons
+var nome = document.querySelector("#nome") 
+
+var tipo = document.querySelector("#tipo");
+
+var nivel = document.querySelector("#nivel");
+
+var desc= document.querySelector("#descricao");
+var img= document.querySelector("#imagem");
+
+function pokemons() {
+var template = document.querySelector("#modelo") // modelo que vai carregar
+var copia = document.importNode(template.content,true)
+  copia.querySelector(".nome_pokemon").textContent = nome.value + ": "
+  copia.querySelector(".tipo_pokemon").textContent = tipo.value
+  copia.querySelector(".nivel_pokemon").textContent = nivel.value + ": "
+  copia.querySelector(".descricao_pokemon").textContent = desc.value
+  copia.querySelector(".pokedex_imagem").src = img.value;
+ document.body.appendChild(copia)
+
